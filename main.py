@@ -1,12 +1,13 @@
-import time
-def delay_decorator(func):
+def start(func):
     def wrapper(*args , **kwargs):
-        time.sleep(1.5)
-        return func(*args , **kwargs)
+        suma = func(*args , **kwargs)
+        return suma + 100
     return wrapper
-
-@delay_decorator
-def sleepy():
-    print('Hello!')
-for i in range(3):
-    sleepy()
+@start
+def lesson_2(*num):
+    finish = 1
+    for rezult in num:
+      finish *= rezult
+    print(f"Добуток: {finish}")
+    return finish
+print("Результат:" , lesson_2(3 , 5 , 8 ,9))
